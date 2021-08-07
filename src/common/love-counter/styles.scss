@@ -1,0 +1,43 @@
+.counter-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+  box-sizing: border-box;
+}
+
+.love-spacer {
+  width: 100px;
+  height: 100px;
+  background-image: url("https://media.giphy.com/media/l4Ki4biBSwhjyrS48/giphy.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.love-text {
+  color: #c31432;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #c31432;
+  font-size: 2.5em !important;
+}
+
+.love-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-block {
+  width: 200px;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
