@@ -1,0 +1,7 @@
+export const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST" as const;
+export const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS" as const;
+export const SEARCH_USER_FAILURE = "SEARCH_USER_FAILURE" as const;
+
+export const UPDATE_USER_REQUEST = "UPDATE_USER_REQUEST" as const;
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS" as const;
+export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE" as const;

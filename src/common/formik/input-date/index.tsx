@@ -6,6 +6,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
+import ErrorMessage from "../error-message";
 
 type Props = {
   name: string;
@@ -26,24 +27,27 @@ const InputDate: React.FC<Props> = ({ name, label }) => {
   };
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justifyContent="space-around">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label={label}
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            "aria-label": "change date",
-          }}
-          name={name}
-        />
-      </Grid>
-    </MuiPickersUtilsProvider>
+    <>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <Grid container justifyContent="space-around" className="date-picker">
+          <KeyboardDatePicker
+            disableToolbar
+            variant="inline"
+            format="dd/MM/yyyy"
+            margin="normal"
+            id="date-picker-inline"
+            label={label}
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+            name={name}
+          />
+        </Grid>
+      </MuiPickersUtilsProvider>
+      <ErrorMessage name={name} />
+    </>
   );
 };
 

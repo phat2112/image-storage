@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
   stepLabels: string[];
   activeStep: number;
-  handleReset: () => void;
   handleBack: () => void;
   handleNext: () => void;
 };
@@ -31,7 +30,6 @@ type Props = {
 const StepBar: React.FC<Props> = ({
   stepLabels,
   activeStep,
-  handleReset,
   handleBack,
   handleNext,
 }) => {

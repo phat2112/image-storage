@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
+
+import { AuthSelector } from "../../stores/authentication/selectors";
+import { LoginResponse } from "../../stores/authentication/types";
 import { STORAGE_TYPE } from "../../common/constants";
 import LoveCounter from "../../common/love-counter";
 import BackgroundImg from "../../assets/images/background-img.jpg";
@@ -11,9 +15,15 @@ const Main = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [isLoveStorage, setIsLoveStorage] = useState<boolean>(false);
 
+  const currentUser: LoginResponse = useSelector((state) =>
+    AuthSelector.getCurrentUser(state)
+  );
+
   useEffect(() => {
-    setOpen(true);
-  }, []);
+    if (!currentUser.isUpdateInfo) {
+      setOpen(true);
+    }
+  }, [currentUser.isUpdateInfo]);
 
   const leftSideData = [
     { label: "Family", type: STORAGE_TYPE.FAMILY },

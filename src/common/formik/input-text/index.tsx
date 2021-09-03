@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useField } from "formik";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -9,9 +9,16 @@ type Props = {
   label: string;
   type: string;
   isLogin?: boolean;
+  handleChangeValue?: (value: string) => void;
 };
 
-const InputText: React.FC<Props> = ({ name, label, type, isLogin = false }) => {
+const InputText: React.FC<Props> = ({
+  name,
+  label,
+  type,
+  isLogin = false,
+  handleChangeValue,
+}) => {
   const useStyles = makeStyles(() =>
     createStyles({
       root: {
@@ -24,6 +31,11 @@ const InputText: React.FC<Props> = ({ name, label, type, isLogin = false }) => {
 
         "& label.Mui-focused": {
           color: "#000",
+        },
+
+        "&.div": {
+          width: "100%",
+          boxSizing: "border-box",
         },
 
         "& div:before": {
@@ -42,12 +54,16 @@ const InputText: React.FC<Props> = ({ name, label, type, isLogin = false }) => {
   const [, meta, helpers] = useField(name);
   const [value, setValue] = useState<string>(meta.initialValue);
 
+  useEffect(() => {
+    setValue(meta.value);
+  }, [meta.value]);
+
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
+    handleChangeValue && handleChangeValue(event.target.value);
   };
 
   const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
     helpers.setValue(event.target.value);
     helpers.setTouched(true);
   };

@@ -1,13 +1,13 @@
 @import "../../../styles/variables.scss";
 
-.login-block {
+.register-block {
   position: absolute;
   width: 350px;
-  height: 350px;
+  height: fit-content;
   right: 10%;
   top: 50%;
   transform: translateY(-50%);
-  border: 2px solid $common-white;
+  border: 2px solid #fff;
   border-radius: 20px;
   padding: 20px;
 }

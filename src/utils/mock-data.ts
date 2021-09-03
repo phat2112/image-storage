@@ -1,9 +1,9 @@
 import { STORAGE_TYPE } from "../common/constants";
 
 export const stepLabels: string[] = [
-  "Upload your avatar",
-  "Choose type of storage",
-  "Upload your girl/boy-friend's avatar (optional)",
+  "Thêm ảnh đại diện",
+  "Lựa chọn loại hình muốn lưu",
+  "Thêm ảnh đại diện của người ấy(nếu có)",
 ];
 
 export const storageData = [
